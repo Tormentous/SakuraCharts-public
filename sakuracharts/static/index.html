@@ -371,7 +371,7 @@ function renderCore(){dirtyF=false;const r=$('chart').getBoundingClientRect(),dp
   ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,r.width,r.height);PLACED=[];const W=r.width-chart.priceScale('right').width();ctx.save();ctx.beginPath();ctx.rect(0,0,W,r.height-chart.timeScale().height());ctx.clip();
   if(window.__stReady)drawStudies(W,r.height);
   if(S.momSeg)drawMom(W,r.height);
-  if(S.ind&&S.sigOn&&!(typeof bsHid==='function'&&bsHid()))drawInd(W);else{const _fp=$('fmpanel');if(_fp&&_fp.style.display!=='none')_fp.style.display='none';}/* UI3: FibMaster-style features table never outlives its indicator */
+  if(S.ind&&S.sigOn&&!(typeof bsHid==='function'&&bsHid()))drawInd(W);else{const _fp=$('fmpanel');if(_fp&&_fp.style.display!=='none')_fp.style.display='none';}
   try{drawStrats(W,r.height);}catch(e){}
   if(!S.hide){ctx.setLineDash([]);ctx.globalAlpha=1;for(const d of S.draw)drawOne(d,d===S.sel);if(S.pending)drawOne(S.pending,false);}
   if(S.selecting&&S.selX!=null){const ac=getComputedStyle(document.documentElement).getPropertyValue('--accent').trim()||'#2962ff';ctx.fillStyle='rgba(0,0,0,.35)';ctx.fillRect(S.selX,0,W,r.height);ctx.strokeStyle=ac;ctx.lineWidth=2;ctx.setLineDash([6,4]);ctx.beginPath();ctx.moveTo(S.selX,0);ctx.lineTo(S.selX,r.height);ctx.stroke();ctx.setLineDash([]);}
